@@ -3,9 +3,8 @@
         {
             "name": "nginxcontainer",
             "image": "489994096722.dkr.ecr.us-east-2.amazonaws.com/jehangir-jenkins-demo",
-            "cpu": 1,
-            "memory": 1,
-            "essential": true
+            "essential": true,
+            "requires-compatibilities": "FARGATE"
         }
     ],
     "family": "nginxtask"
