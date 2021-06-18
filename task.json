@@ -6,5 +6,8 @@
             "essential": true
         }
     ],
-    "family": "nginxtask"
+    "family": "nginxtask",
+    "requiresCompatibilities": [ 
+        "FARGATE" 
+     ]
 }
