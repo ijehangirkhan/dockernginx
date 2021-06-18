@@ -1,0 +1,12 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "nginxcontainer",
+            "image": "${REPOSITORY_URI}:${IMAGE_TAG}",
+            "cpu": 0.25,
+            "memory": 0.5,
+            "essential": true
+        }
+    ],
+    "family": "nginxtask"
+}
