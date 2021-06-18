@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "nginxcontainer",
-            "image": "${repourl}:${imagetag}",
+            "image": "489994096722.dkr.ecr.us-east-2.amazonaws.com/jehangir-jenkins-demo",
             "cpu": 1,
             "memory": 1,
             "essential": true
