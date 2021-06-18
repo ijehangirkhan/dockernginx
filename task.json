@@ -8,6 +8,7 @@
         }
     ],
     "family": "nginxtask",
+    "networkMode": "awsvpc",
     "requiresCompatibilities": [ 
         "FARGATE" 
      ]
