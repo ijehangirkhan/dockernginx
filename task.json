@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "nginxcontainer",
-            "image": "${REPOSITORY_URI}:${IMAGE_TAG}",
+            "image": "${repourl}:${imagetag}",
             "cpu": 1,
             "memory": 1,
             "essential": true
