@@ -9,7 +9,7 @@
     ],
     "family": "nginxtask",
     "networkMode": "awsvpc",
-    "cpu": 1,
+    "cpu": "0.25",
     "requiresCompatibilities": [ 
         "FARGATE" 
      ]
