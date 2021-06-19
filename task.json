@@ -10,6 +10,7 @@
     "family": "nginxtask",
     "networkMode": "awsvpc",
     "cpu": "256",
+    "memory": "512",
     "requiresCompatibilities": [ 
         "FARGATE" 
      ]
