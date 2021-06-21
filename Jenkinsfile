@@ -43,8 +43,11 @@ pipeline {
         // Delpoy on ECS
         stage('Deploy ECR Image to ECS') {
                 steps {
-                    script {
-                    sh "ecs-deploy --profile default  --cluster-name JehangirFargate --service-name nginxservice --image '89994096722.dkr.ecr.us-east-2.amazonaws.com/jehangir-jenkins-demo:$IMAGE_TAG' --desired-count 1 --launch-type 'FARGATE' --platform-version 'LATEST' --network-configuration 'awsvpcConfiguration={subnets=[${Public_Subnet_1}],securityGroups=[sg-0d0f4aed29ce82204],assignPublicIp=ENABLED}' --task-definition-file file://task.json --use-latest-task-def"
+                   script {
+                    sh "aws ecs register-task-definition --cli-input-json file://task.json"
+                    sh "aws ecs create-cluster --cluster-name JehangirFargate"
+                    sh "aws ecs create-service --cluster JehangirFargate --service-name nginxservice --task-definition nginxtask --desired-count 1  --launch-type 'FARGATE' --platform-version 'LATEST' --network-configuration 'awsvpcConfiguration={subnets=[${Public_Subnet_1}],securityGroups=[sg-0d0f4aed29ce82204],assignPublicIp=ENABLED}' "
+                    sh "ecs-deploy --profile default --cluster-name JehangirFargate --service-name nginxservice --image '${REPOSITORY_URI}:$IMAGE_TAG'"
                     }
                 }
         }  
