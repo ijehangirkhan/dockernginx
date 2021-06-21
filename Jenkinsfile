@@ -59,14 +59,14 @@ pipeline {
      post {
         success {
             script {
-                if (${GIT_LOCAL_BRANCH} == 'master')
+                if (${scm.branches[0].name} == 'master')
             slackSend channel: 'U01S70WTAQL', message: 'Build Succeeded.'
             }
            
         }
         failure {
             script {
-                if (${GIT_LOCAL_BRANCH} == 'master')
+                if (${scm.branches[0].name} == 'master')
             slackSend channel: 'U01S70WTAQL', message: 'Build Failed.'
             }
         }
