@@ -59,14 +59,14 @@ pipeline {
      post {
         success {
             script {
-                if ( scm.branches[0].name == 'master')
+                if ( env.BRANCH_NAME == 'master')
             slackSend channel: 'U01S70WTAQL', message: 'Build Succeeded.'
             }
            
         }
         failure {
             script {
-                if ( scm.branches[0].name == 'master')
+                if ( env.BRANCH_NAME == 'master')
             slackSend channel: 'U01S70WTAQL', message: 'Build Failed.'
             }
         }
