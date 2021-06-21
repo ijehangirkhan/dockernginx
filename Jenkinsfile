@@ -54,4 +54,14 @@ pipeline {
       
       
     }
+
+
+     post { 
+        success { 
+            slackSend channel: 'U01S70WTAQL', message: 'Build Succeeded.'
+        }
+        failure {
+            slackSend channel: 'U01S70WTAQL', message: 'Build Failed.'
+        }
+    }
 }
