@@ -47,7 +47,7 @@ pipeline {
                     sh "aws ecs register-task-definition --cli-input-json file://task.json"
                     sh "aws ecs create-cluster --cluster-name JehangirFargate"
                     sh "aws ecs create-service --cluster JehangirFargate --service-name nginxservice --task-definition nginxtask --desired-count 1  --launch-type 'FARGATE' --platform-version 'LATEST' --network-configuration 'awsvpcConfiguration={subnets=[${Public_Subnet_1}],securityGroups=[sg-0d0f4aed29ce82204],assignPublicIp=ENABLED}' "
-                    sh "ecs-deploy -p default -c JehangirFargate -n nginxservice -i '${REPOSITORY_URI}:$IMAGE_TAG' -D 2"
+                    sh "ecs-deploy -p default -c JehangirFargate -n nginxservice -i '${REPOSITORY_URI}:$IMAGE_TAG' -D 1"
                     }
                 }
         }  
