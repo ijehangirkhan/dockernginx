@@ -44,7 +44,7 @@ pipeline {
         stage('Deploy ECR Image to ECS') {
                 steps {
                     script {
-                    sh "ecs-deploy --cluster-name JehangirFargate --service-name nginxservice --image '89994096722.dkr.ecr.us-east-2.amazonaws.com/jehangir-jenkins-demo' --desired-count 1 --launch-type 'FARGATE' --platform-version 'LATEST' --network-configuration 'awsvpcConfiguration={subnets=[${Public_Subnet_1}],securityGroups=[sg-0d0f4aed29ce82204],assignPublicIp=ENABLED}' --task-definition-file file://task.json --use-latest-task-def"
+                    sh "ecs-deploy --profile default  --cluster-name JehangirFargate --service-name nginxservice --image '89994096722.dkr.ecr.us-east-2.amazonaws.com/jehangir-jenkins-demo:$IMAGE_TAG' --desired-count 1 --launch-type 'FARGATE' --platform-version 'LATEST' --network-configuration 'awsvpcConfiguration={subnets=[${Public_Subnet_1}],securityGroups=[sg-0d0f4aed29ce82204],assignPublicIp=ENABLED}' --task-definition-file file://task.json --use-latest-task-def"
                     }
                 }
         }  
