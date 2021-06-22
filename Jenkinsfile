@@ -1,3 +1,4 @@
+@Library("AutomationLibrary") _
 pipeline {
     agent any
     environment {
@@ -60,14 +61,14 @@ pipeline {
         success {
             script {
                 if ( env.BRANCH_NAME == 'master')
-                slackSend channel: 'U01S70WTAQL', message: "Build Succeeded. The Job: ${env.JOB_NAME} built successfully with Build# ${env.BUILD_NUMBER} which triggered with change in ${env.BRANCH_NAME} Branch on ${env.GIT_URL}"
+                slackSuccess()
             }
            
         }
         failure {
             script {
                 if ( env.BRANCH_NAME == 'master')
-                slackSend channel: 'U01S70WTAQL', message: "Build Failed. The Job: ${env.JOB_NAME} build failed with Build# ${env.BUILD_NUMBER} which triggered with change in ${env.BRANCH_NAME} Branch on ${env.GIT_URL}"
+                slackFailure()
             }
         }
     }
