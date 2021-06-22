@@ -44,7 +44,7 @@ pipeline {
         // Delpoy on ECS
         stage('Deploy ECR Image to ECS') {
                 steps {
-                       createService()
+                       createService("${Public_Subnet_1}")
                        ecsDeploy()
                 }
         }  
