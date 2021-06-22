@@ -44,10 +44,8 @@ pipeline {
         // Delpoy on ECS
         stage('Deploy ECR Image to ECS') {
                 steps {
-                   script {
                        createService()
                        ecsDeploy()
-                    }
                 }
         }  
       
