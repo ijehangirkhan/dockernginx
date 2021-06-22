@@ -45,7 +45,7 @@ pipeline {
         stage('Deploy ECR Image to ECS') {
                 steps {
                        createService("${Public_Subnet_1}")
-                       ecsDeploy()
+                       ecsDeploy("${REPOSITORY_URI}","$IMAGE_TAG")
                 }
         }  
       
