@@ -1,6 +1,6 @@
 @Library("AutomationLibrary") _
 pipeline {
-    agent agent { label 'slave1' }
+    agent { label 'slave1' }
     environment {
         AWS_ACCOUNT_ID="489994096722"
         AWS_DEFAULT_REGION="us-east-2" 
